@@ -14,13 +14,13 @@ This is a simple web clone of the instagram website. A user can create an accoun
 
 ## Author
 
-> [Jason Muchiri](https://github.com/jasonmuchiri)
+
 
 ## Set up instructions and installations
 
 ### Prerequisites
 
-- python3.6 
+- python3.9
 
 - python virtual environment ~ to create one run the following command `python3.6 -m venv --without-pip virtual`
 
@@ -73,7 +73,7 @@ This is a simple web clone of the instagram website. A user can create an accoun
 
 - Run the app
 
-   - `python3.6 manage.py runserver`
+   - `python3.9 manage.py runserver`
 
 - Open the `localhost:8000` to check if the app is running successfully.
 

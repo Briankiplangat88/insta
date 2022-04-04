@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'instaclone.apps.InstacloneConfig',
-    'bootstrap3',
+    'bootstrap4',
     'pyuploadcare.dj',
 ]
 
