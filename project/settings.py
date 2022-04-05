@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-import cloudinary 
+# import cloudinary 
 
 
 
@@ -137,8 +137,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/' 
 
-cloudinary.config( 
-  cloud_name = "kiplaa001", 
-  api_key = "371343562969626", 
-  api_secret = "qb6sgd0fHavve-T3dxBIa8H34W8" 
-)
+# cloudinary.config( 
+#   cloud_name = "kiplaa001", 
+#   api_key = "371343562969626", 
+#   api_secret = "qb6sgd0fHavve-T3dxBIa8H34W8" 
+# )
