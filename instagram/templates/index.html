@@ -22,7 +22,7 @@
             <div class="card" style="width: 30rem; margin-top: 20px;">
                 <div class="card-title">
                     <img src="{{image.user.photo.url}}" class="rounded-circle border ml-3 mt-2  mr-3"
-                        alt="{{image.user.user.username}}" width="35" height="35">
+                         alt="{{image.user.user.username}}" width="35" height="35"> -->
                     <a href="{% url 'profile' image.user.user.username  %}" class="mt-4 user" style="color: blue; font-weight: bold;">{{image.user.user.username|title}}</a>
                 </div>
                 <div class="card-body">
@@ -70,7 +70,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-2 mr-3 mt-1 mb-2">
-                        <img class="rounded-circle" src="{{ user.profile.photo.url }}" width="45px" height="45px">
+                        <!-- <img class="rounded-circle" src="{{ user.profile.photo.url }}" width="45px" height="45px"> -->
                     </div>
                     <div class="col-md-6 mr-2 mt-2">
                         <span><a style="color:rgb(37, 194, 45)" href="{% url 'user_profile' user.username  %}">{{ user.username }}</a></span>

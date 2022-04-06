@@ -3,13 +3,14 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
-
+from cloudinary.models import CloudinaryField
 
 class Image(models.Model):
     user = models.ForeignKey('Profile', on_delete=models.CASCADE, related_name='images')
-    image = models.CharField ('image',null=True, blank=True,max_length=30)
+    
     name = models.CharField(max_length=30)
     caption = models.CharField(max_length=30)
+    image = CloudinaryField('image')
 
     class Meta:
         ordering = ["-pk"]
@@ -41,10 +42,10 @@ class Image(models.Model):
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile',null=True)
-    photo = models.CharField('image',null=True, blank=True,max_length=30)
+    
     bio = models.CharField(max_length=300)
     name = models.CharField(blank=True, max_length=120)
-
+    photo = CloudinaryField('image')
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
         try:
