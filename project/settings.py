@@ -1,5 +1,6 @@
 import os
 
+
 """
 Django settings for project project.
 
@@ -41,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'instagram',
-    'bootstrap4'
+    'bootstrap4',
+    
 ]
 
 MIDDLEWARE = [
@@ -79,9 +81,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / "db.sqlite3"),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'insta',
+        'USER': 'moringa',
+        'PASSWORD':'Access',
     }
 }
 
@@ -121,13 +126,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
-#media
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+
+# cloudinary.config( 
+#   cloud_name = "kiplaa001", 
+#   api_key = "371343562969626", 
+#   api_secret = "qb6sgd0fHavve-T3dxBIa8H34W8" 
+# ) 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

@@ -2,14 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-import cloudinary
-from cloudinary.models import CloudinaryField
 from django.core.exceptions import ObjectDoesNotExist
 
 
 class Image(models.Model):
     user = models.ForeignKey('Profile', on_delete=models.CASCADE, related_name='images')
-    image = cloudinary.models.CloudinaryField('image',null=True, blank=True)
+    image = models.CharField ('image',null=True, blank=True,max_length=30)
     name = models.CharField(max_length=30)
     caption = models.CharField(max_length=30)
 
@@ -43,7 +41,7 @@ class Image(models.Model):
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile',null=True)
-    photo = cloudinary.models.CloudinaryField('image',null=True, blank=True)
+    photo = models.CharField('image',null=True, blank=True,max_length=30)
     bio = models.CharField(max_length=300)
     name = models.CharField(blank=True, max_length=120)
 

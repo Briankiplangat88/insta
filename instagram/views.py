@@ -14,7 +14,7 @@ from .email import send_welcome_email
 
 
 # Create your views here.
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='login')
 def index(request):
     images = Image.images()
     users = User.objects.exclude(id=request.user.id)
@@ -33,7 +33,7 @@ def post(request):
         form = UploadForm()
     return render(request,'post_image.html', {"form":form})
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='login')
 def profile(request, username):
     images = request.user.profile.images.all()
     print(images)
@@ -54,7 +54,7 @@ def profile(request, username):
     }
     return render(request, 'profile.html', params)
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='login')
 def update_profile(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST,request.FILES)
@@ -67,7 +67,7 @@ def update_profile(request):
         form = UploadForm()
     return render(request,'edit_profile.html',{"form":form})
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='login')
 def search_profile(request):
     if 'search_user' in request.GET and request.GET['search_user']:
         name = request.GET.get("search_user")
@@ -83,7 +83,7 @@ def search_profile(request):
         message = "You did not make a selection"
     return render(request, 'results.html', {'message': message})
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='login')
 def user_profile(request, username):
     user_prof = get_object_or_404(User, username=username)
     if request.user == user_prof:
@@ -105,7 +105,7 @@ def user_profile(request, username):
     }
     return render(request, 'user_profile.html', params)
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='login')
 def unfollow(request, to_unfollow):
     if request.method == 'GET':
         user_two_profile = Profile.objects.get(pk=to_unfollow)
@@ -114,7 +114,7 @@ def unfollow(request, to_unfollow):
         return redirect('user_profile', user_two_profile.user.username)
 
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='login')
 def follow(request, to_follow):
     if request.method == 'GET':
         user_three_profile = Profile.objects.get(pk=to_follow)
@@ -122,7 +122,7 @@ def follow(request, to_follow):
         follow_s.save()
         return redirect('user_profile', user_three_profile.user.username)
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='login')
 def comment(request, id):
     image = get_object_or_404(Image, pk=id)
     comments = image.comment.all()

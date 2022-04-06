@@ -7,9 +7,9 @@ from django.contrib.auth.models import User
 class ProfileTestClass(TestCase):
     from django.contrib.auth.models import User
     def setUp(self):
-        self.user = User(username='Japhet')
+        self.user = User(username='briankiplanagat')
         self.user.save()
-        self.profile = Profile(id=1,user=self.user,photo='download.jpeg',bio='My name is Japhet', name='person')
+        self.profile = Profile(id=1,user=self.user,photo='download.jpeg',bio='My name is briankiplangat', name='person')
         self.profile.save_profile()
 
     def tearDown(self):
