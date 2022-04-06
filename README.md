@@ -1,12 +1,5 @@
 # Instagram
 
-#### A clone of the popular social media photo app [Instagram](https://www.instagram.com/)
-
->------------------------------------------------------------------------------------
-
-![App](/static/img/view.png)
-
->------------------------------------------------------------------------------------
 
 ## Description
 
